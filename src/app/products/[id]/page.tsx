@@ -141,15 +141,23 @@ export default async function ProductDetail({ params }: { params: Promise<{ id: 
               </div>
             </div>
 
-            {/* 문의 버튼 */}
-            <button
-              disabled={product.status === '판매완료'}
-              className="mt-6 w-full py-3 rounded-lg font-semibold text-white transition-colors
-                bg-[#cc0000] hover:bg-red-700
-                disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed"
-            >
-              {product.status === '판매완료' ? '판매 완료된 상품입니다' : '판매자에게 문의하기'}
-            </button>
+            {/* 버튼 영역 */}
+            <div className="mt-6 flex gap-3">
+              <Link
+                href={`/products/${product.id}/edit`}
+                className="flex-1 py-3 rounded-lg border border-[#1a2b5e] text-[#1a2b5e] text-sm font-semibold text-center hover:bg-blue-50 transition-colors"
+              >
+                수정하기
+              </Link>
+              <button
+                disabled={product.status === '판매완료'}
+                className="flex-1 py-3 rounded-lg font-semibold text-white text-sm transition-colors
+                  bg-[#cc0000] hover:bg-red-700
+                  disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed"
+              >
+                {product.status === '판매완료' ? '판매 완료' : '문의하기'}
+              </button>
+            </div>
           </div>
         </div>
       </main>
