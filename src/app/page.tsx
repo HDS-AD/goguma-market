@@ -63,7 +63,7 @@ export default async function Home() {
 
       {/* 상단 띠 */}
       <div className="bg-[#cc0000] text-white text-xs text-center py-1 tracking-wide">
-        믿을 수 있는 중고거래 플랫폼 — 고구마마켓
+        믿을 수 있는 중고거래 플랫폼 — HRS사내마켓
       </div>
 
       {/* 헤더 */}
@@ -72,8 +72,8 @@ export default async function Home() {
           <div className="flex items-center gap-3">
             <span className="text-2xl">🍠</span>
             <div>
-              <h1 className="text-xl font-bold text-white tracking-tight leading-none">고구마마켓</h1>
-              <p className="text-[10px] text-blue-200 tracking-widest mt-0.5">GOGUMA MARKET</p>
+              <h1 className="text-xl font-bold text-white tracking-tight leading-none">HRS사내마켓</h1>
+              <p className="text-[10px] text-blue-200 tracking-widest mt-0.5">HRS INTERNAL MARKET</p>
             </div>
           </div>
           <nav className="hidden md:flex items-center gap-6 text-sm text-blue-100">
@@ -91,7 +91,7 @@ export default async function Home() {
       <section className="bg-[#1a2b5e] text-white py-10 px-6">
         <div className="max-w-6xl mx-auto">
           <p className="text-blue-300 text-sm mb-1 tracking-widest">TRUSTED SECOND-HAND TRADING</p>
-          <h2 className="text-3xl font-bold">믿을 수 있는 중고거래,<br />고구마마켓에서 시작하세요.</h2>
+          <h2 className="text-3xl font-bold">믿을 수 있는 중고거래,<br />HRS사내마켓에서 시작하세요.</h2>
         </div>
       </section>
 
@@ -141,7 +141,7 @@ export default async function Home() {
 
       {/* 푸터 */}
       <footer className="bg-[#1a2b5e] text-blue-200 text-xs text-center py-6 mt-10">
-        <p className="font-semibold text-white mb-1">고구마마켓 GOGUMA MARKET</p>
+        <p className="font-semibold text-white mb-1">HRS사내마켓 HRS INTERNAL MARKET</p>
         <p>© 2026 Goguma Market. All rights reserved.</p>
       </footer>
     </div>
