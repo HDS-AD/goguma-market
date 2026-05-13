@@ -44,9 +44,9 @@ export default async function Home() {
             <a href="#" className="hover:text-white transition-colors">인기상품</a>
             <a href="#" className="hover:text-white transition-colors">나의 거래</a>
           </nav>
-          <button className="bg-[#cc0000] hover:bg-red-700 text-white text-sm font-medium px-5 py-2 rounded transition-colors">
+          <Link href="/products/new" className="bg-[#cc0000] hover:bg-red-700 text-white text-sm font-medium px-5 py-2 rounded transition-colors">
             상품 등록
-          </button>
+          </Link>
         </div>
       </header>
 

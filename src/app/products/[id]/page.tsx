@@ -19,7 +19,7 @@ export default async function ProductDetail({ params }: { params: Promise<{ id: 
     .from('products')
     .select('*')
     .eq('id', id)
-    .single()
+    .single<Product>()
 
   if (!product) notFound()
 
@@ -41,9 +41,9 @@ export default async function ProductDetail({ params }: { params: Promise<{ id: 
               <p className="text-[10px] text-blue-200 tracking-widest mt-0.5">GOGUMA MARKET</p>
             </div>
           </Link>
-          <button className="bg-[#cc0000] hover:bg-red-700 text-white text-sm font-medium px-5 py-2 rounded transition-colors">
+          <Link href="/products/new" className="bg-[#cc0000] hover:bg-red-700 text-white text-sm font-medium px-5 py-2 rounded transition-colors">
             상품 등록
-          </button>
+          </Link>
         </div>
       </header>
 
