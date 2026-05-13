@@ -1,6 +1,7 @@
 import { supabase, Product } from '@/lib/supabase'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import DeleteButton from './DeleteButton'
 
 const emojiMap: [string[], string][] = [
   [['아이폰', '갤럭시', '스마트폰', '휴대폰'], '📱'],
@@ -157,6 +158,9 @@ export default async function ProductDetail({ params }: { params: Promise<{ id: 
               >
                 {product.status === '판매완료' ? '판매 완료' : '문의하기'}
               </button>
+            </div>
+            <div className="mt-3">
+              <DeleteButton id={product.id} />
             </div>
           </div>
         </div>
