@@ -1,4 +1,5 @@
 import { supabase, Product } from '@/lib/supabase'
+import Link from 'next/link'
 
 const statusStyle: Record<Product['status'], string> = {
   '판매중':   'bg-blue-50 text-blue-700 border border-blue-200',
@@ -69,9 +70,10 @@ export default async function Home() {
 
         <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4">
           {products?.map((product: Product) => (
-            <div
+            <Link
               key={product.id}
-              className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1.5 transition-all duration-200 cursor-pointer border border-gray-100"
+              href={`/products/${product.id}`}
+              className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1.5 transition-all duration-200 cursor-pointer border border-gray-100 block"
             >
               {/* 이미지 */}
               <div className="bg-gray-50 aspect-square flex items-center justify-center text-5xl border-b border-gray-100">
@@ -91,7 +93,7 @@ export default async function Home() {
                 </p>
                 <p className="mt-1 text-xs text-gray-400">{product.seller_name}</p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </main>
