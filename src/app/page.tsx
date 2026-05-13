@@ -11,6 +11,43 @@ function formatPrice(price: number) {
   return `₩${price.toLocaleString('ko-KR')}`
 }
 
+const emojiMap: [string[], string][] = [
+  [['아이폰', '갤럭시', '스마트폰', '휴대폰'], '📱'],
+  [['맥북', '노트북', '랩탑'], '💻'],
+  [['에어팟', '이어폰', '헤드폰', '이어버드'], '🎧'],
+  [['아이패드', '태블릿', '갤탭'], '📟'],
+  [['카메라', '렌즈', '미러리스', 'DSLR'], '📷'],
+  [['닌텐도', '플스', '게임기', '스위치', '엑스박스'], '🎮'],
+  [['마우스', '키보드', '모니터', '스피커'], '🖥️'],
+  [['청소기', '로봇청소기', '다이슨'], '🧹'],
+  [['에어랩', '드라이어', '고데기'], '💇'],
+  [['밥솥', '냄비', '프라이팬', '에어프라이어'], '🍳'],
+  [['커피', '에스프레소', '캡슐'], '☕'],
+  [['토스터', '전자레인지', '오븐'], '🍞'],
+  [['공기청정기', '가습기', '제습기', '선풍기'], '💨'],
+  [['냉장고', '세탁기', '건조기'], '🏠'],
+  [['의자', '체어', '소파', '쇼파'], '🪑'],
+  [['책상', '테이블', '선반', '책장', '행거', '칼락스'], '🪵'],
+  [['신발', '운동화', '구두', '슬리퍼', '에어맥스', '나이키', '아디다스'], '👟'],
+  [['가방', '백팩', '크로스백', '파우치', '프라이탁'], '👜'],
+  [['자전거', '킥보드', '전동'], '🚴'],
+  [['텐트', '캠핑', '등산', '아웃도어'], '⛺'],
+  [['덤벨', '헬스', '요가', '운동', '홈트'], '🏋️'],
+  [['테니스', '라켓', '골프', '배드민턴'], '🎾'],
+  [['레고', '블록', '피규어', '인형'], '🧱'],
+  [['기타', '우쿨렐레', '피아노', '악기'], '🎸'],
+  [['책', '도서', '만화'], '📚'],
+  [['필름카메라', '폴라로이드'], '📸'],
+]
+
+function getProductEmoji(title: string): string {
+  const lower = title.toLowerCase()
+  for (const [keywords, emoji] of emojiMap) {
+    if (keywords.some(k => lower.includes(k.toLowerCase()))) return emoji
+  }
+  return '🛍️'
+}
+
 export default async function Home() {
   const { data: products, error } = await supabase
     .from('products')
@@ -77,7 +114,11 @@ export default async function Home() {
             >
               {/* 이미지 */}
               <div className="bg-gray-50 aspect-square flex items-center justify-center text-5xl border-b border-gray-100">
-                🍠
+                {product.image_url ? (
+                  <img src={product.image_url} alt={product.title} className="w-full h-full object-cover" />
+                ) : (
+                  getProductEmoji(product.title)
+                )}
               </div>
 
               {/* 정보 */}
